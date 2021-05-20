@@ -1,18 +1,11 @@
 pipeline {
-    node {
-            withCleanup {
-                unstash 'source'
-                withRvm('ruby-2.5.1') {
-                    sh 'rvm use 2.5.1'
-                    sh 'fastlane bootstrap'
-
-                }
-            }
-        }
+    agent any
 
     stages {
         stage('Build') {
             steps {
+                sh 'rvm use 2.5.1'
+                sh 'fastlane bootstrap'
                 echo 'Building..'
             }
         }
