@@ -21,31 +21,6 @@ parallel(
     }
 )
 
-def knapsack(ci_node_total, cl) {
-    def nodes = [:]
-
-    for(int i = 0; i < ci_node_total; i++) {
-        def index = i;
-        nodes["ci_node_${i}"] = {
-            withEnv(["CI_NODE_INDEX=$index", "CI_NODE_TOTAL=$ci_node_total"]) {
-                cl()
-            }
-        }
-    }
-
-    return nodes;
-}
-
-// Helper functions
-
-def withCleanup(Closure cl) {
-    deleteDir()
-    try {
-        cl()
-    } finally {
-        deleteDir()
-    }
-}
 
 def withRvm(version, cl) {
     withRvm(version, "executor-${env.EXECUTOR_NUMBER}") {
@@ -56,8 +31,7 @@ def withRvm(version, cl) {
 def withRvm(version, gemset, cl) {
     RVM_HOME='$HOME/.rvm'
     paths = [
-        "$RVM_HOME/gems/$version@$gemset/bin",
-        "$RVM_HOME/gems/$version@global/bin",
+
         "$RVM_HOME/rubies/$version/bin",
         "$RVM_HOME/bin",
         "${env.PATH}"
