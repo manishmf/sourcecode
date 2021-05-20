@@ -1,6 +1,6 @@
 #!groovy
  
-@Library('jenkins-pipeline-utils@1.0.0') _
+@Library('jenkins-pipeline-utils') _
  
 properties([[$class: 'BuildDiscarderProperty',
              strategy: [$class: 'LogRotator',
