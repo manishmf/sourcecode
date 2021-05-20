@@ -1,10 +1,3 @@
-stage 'Checkout'
-
-node {
-    checkout(scm)
-    stash 'source'
-}
-
 pipeline {
     node {
             withCleanup {
