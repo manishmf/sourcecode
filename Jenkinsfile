@@ -13,8 +13,9 @@ parallel(
             withCleanup {
                 unstash 'source'
                 withRvm('ruby-2.5.1') {
+                    sh 'rvm use 2.5.1'
                     sh 'bundle install'
-                    sh 'bundle exec rake knapsack:rspec'
+
                 }
             }
         }
