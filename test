@@ -1,8 +1,10 @@
 this is my test-1 file
-jjfjjs
 this is source path
+<<<<<<< .merge_file_a07456
 thjjfsjj
 hjsfjdjsdj
 jfjsjs
 jjfsjjsdfj
 this is another source file
+=======
+>>>>>>> .merge_file_a08080
