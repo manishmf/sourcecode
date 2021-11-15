@@ -4,7 +4,7 @@ pipeline {
     stage('Execute shell') {
       steps {
         sh "chmod +x -R ${env.WORKSPACE}"
-        sh "./my-script.sh"
+        sh "test.sh"
       }
     }
   }
